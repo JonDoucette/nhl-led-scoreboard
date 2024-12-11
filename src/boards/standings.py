@@ -31,7 +31,7 @@ class Standings:
                     self.matrix.draw_image((0, i), image)
                     self.matrix.render()
                     #sleep(5)
-                    self.sleepEvent.wait(5)
+                    self.sleepEvent.wait(10)
                     # Move the image up until we hit the bottom.
                     while i > -(im_height - self.matrix.height) and not self.sleepEvent.is_set():
                         i -= 1
@@ -41,7 +41,7 @@ class Standings:
                         self.sleepEvent.wait(0.2)
                     # Show the bottom before we change to the next table.
                     #sleep(5)
-                    self.sleepEvent.wait(5)
+                    self.sleepEvent.wait(7)
 
                 elif type == 'division':
                     division = self.data.config.preferred_divisions
@@ -54,7 +54,7 @@ class Standings:
                     self.matrix.draw_image((0, i), image)
                     self.matrix.render()
                     #sleep(5)
-                    self.sleepEvent.wait(5)
+                    self.sleepEvent.wait(10)
 
                     # Move the image up until we hit the bottom.
                     while i > -(im_height - self.matrix.height) and not self.sleepEvent.is_set():
@@ -65,7 +65,7 @@ class Standings:
                         self.sleepEvent.wait(0.2)
                     # Show the bottom before we change to the next table.
                     #sleep(5)
-                    self.sleepEvent.wait(5)
+                    self.sleepEvent.wait(7)
 
                 elif type == 'wild_card':
                     wildcard_records = {}
