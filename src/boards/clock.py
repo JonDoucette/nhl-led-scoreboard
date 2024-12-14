@@ -15,7 +15,7 @@ class Clock:
         self.time = datetime.datetime.now()
 
         self.matrix = matrix
-        self.time_format = data.config.time_format
+        self.time_format = data.config.clock_time_format
         self.duration = duration
         #Is the weather clock json loaded
         self.wx_clock = False
@@ -129,10 +129,12 @@ class Clock:
             )
 
         # Display curr temp and humidity on clock, bottom
+        # Removed the humidity as not useful in Vegas
         if self.data.config.weather_show_on_clock and self.wx_clock:
             self.matrix.draw_text_layout(
             self.layout.wx_display,
-            self.data.wx_current[3] + " " +self.data.wx_current[5],
+            self.data.wx_current[3], 
+            #self.data.wx_current[3] + " " +self.data.wx_current[5],
             fillColor=self.wxdtfill
             )
             if len(self.data.wx_alerts) > 0 and self.data.config.wxalert_show_on_clock:

@@ -65,7 +65,7 @@ class Standings:
                         self.sleepEvent.wait(0.2)
                     # Show the bottom before we change to the next table.
                     #sleep(5)
-                    self.sleepEvent.wait(7)
+                    self.sleepEvent.wait(6)
 
                 elif type == 'wild_card':
                     wildcard_records = {}

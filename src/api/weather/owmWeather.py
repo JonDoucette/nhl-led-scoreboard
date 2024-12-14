@@ -42,8 +42,9 @@ class owmWxWorker(object):
         lat = self.data.latlng[0]
         lon = self.data.latlng[1]
         #Testing
-        #lat = 32.653
-        #lon = -83.7596
+        #Manual Overriding to Skye Canyon LV
+        lat = 36.3149
+        lon = -115.3085
         try:
             # Check cache first
             wx_cache,expiration_time = sb_cache.get("weather",expire_time=True)
