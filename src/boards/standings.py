@@ -31,7 +31,7 @@ class Standings:
                     self.matrix.draw_image((0, i), image)
                     self.matrix.render()
                     #sleep(5)
-                    self.sleepEvent.wait(10)
+                    self.sleepEvent.wait(5)
                     # Move the image up until we hit the bottom.
                     while i > -(im_height - self.matrix.height) and not self.sleepEvent.is_set():
                         i -= 1
@@ -41,7 +41,7 @@ class Standings:
                         self.sleepEvent.wait(0.2)
                     # Show the bottom before we change to the next table.
                     #sleep(5)
-                    self.sleepEvent.wait(7)
+                    self.sleepEvent.wait(5)
 
                 elif type == 'division':
                     division = self.data.config.preferred_divisions
@@ -54,7 +54,7 @@ class Standings:
                     self.matrix.draw_image((0, i), image)
                     self.matrix.render()
                     #sleep(5)
-                    self.sleepEvent.wait(10)
+                    self.sleepEvent.wait(5)
 
                     # Move the image up until we hit the bottom.
                     while i > -(im_height - self.matrix.height) and not self.sleepEvent.is_set():
@@ -65,7 +65,7 @@ class Standings:
                         self.sleepEvent.wait(0.2)
                     # Show the bottom before we change to the next table.
                     #sleep(5)
-                    self.sleepEvent.wait(6)
+                    self.sleepEvent.wait(5)
 
                 elif type == 'wild_card':
                     wildcard_records = {}
@@ -170,9 +170,12 @@ class Standings:
                 elif type == 'wild_card':
                     wildcard_records = {}
                     for conf_name, conf_data in vars(self.data.standings.by_wildcard).items():
+                        print(conf_name)
+                        print(conf_data)
                         wildcard_records["conference"] = conf_name
                         division_leaders = {}
                         for record_type, value in vars(conf_data).items():
+                            print(value)
                             if record_type == "wild_card":
                                 wildcard_records["wild_card"] = value
                             else:
@@ -187,6 +190,7 @@ class Standings:
                         img_height = (number_of_rows * 7) + (table_offset * 2)
                         # Increment to move image up
                         i = 0
+                        print('Drawing wild cards')
                         image = draw_wild_card(self.data, wildcard_records, self.matrix.width, img_height, table_offset)
                         self.matrix.draw_image((0, i), image)
                         self.matrix.render()

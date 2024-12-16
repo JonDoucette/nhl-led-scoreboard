@@ -228,7 +228,7 @@ class Standings:
         self.data_wildcard = wildcard
         self.get_conference()
         self.get_division()
-        # self.get_wild_card()
+        #self.get_wild_card()
 
     def get_conference(self):
         eastern, western = self.sort_conference(self.data)

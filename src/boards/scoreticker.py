@@ -23,7 +23,6 @@ class Scoreticker:
         self.index = 0
         self.games = self.data.other_games()
         self.num_games = len(self.games)
-        print(self.rotation_rate)
         try:
             while not self.sleepEvent.is_set():
                 self.matrix.clear()
