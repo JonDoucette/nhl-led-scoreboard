@@ -28,10 +28,9 @@ def set_debug_status(config,logcolor=False,loglevel='INFO'):
 			colorAvail = False
 			logger.error("ERROR: Unable to import module: {}  Did you install it?".format(e))
 
-
 	if loglevel.lower() == "debug":
 		debug_enabled = True
-
+	
 	if debug_enabled:
 		if colorAvail:
 			coloredlogs.install(level='DEBUG',fmt='%(asctime)s %(name)s %(levelname)s %(message)s',stream=sys.stdout)

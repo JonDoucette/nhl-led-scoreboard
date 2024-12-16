@@ -133,7 +133,7 @@ class Clock:
         if self.data.config.weather_show_on_clock and self.wx_clock:
             self.matrix.draw_text_layout(
             self.layout.wx_display,
-            self.data.wx_current[3], 
+            self.data.wx_current[3],
             #self.data.wx_current[3] + " " +self.data.wx_current[5],
             fillColor=self.wxdtfill
             )

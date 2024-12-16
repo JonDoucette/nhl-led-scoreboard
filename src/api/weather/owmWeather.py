@@ -171,7 +171,7 @@ class owmWxWorker(object):
                 if float(owm_temp) < check_windchill:
                     windchill = round(wind_chill(float(owm_temp),float(owm_windspeed),"mps"),1)
                     wx_app_temp = str(windchill) + self.data.wx_units[0]
-                    wx_temp = str(round(owm_temp,1)) + self.data.wx_units[0]
+                    wx_temp = str(int(owm_temp)) + self.data.wx_units[0]
                 else:
                     if self.data.config.weather_units == "metric":
                         wx_app_temp = wx.get('humidity')
@@ -183,7 +183,7 @@ class owmWxWorker(object):
             else:
                 wx_app_temp = str(round(owm_app_temp,1)) + self.data.wx_units[0]
             
-            wx_temp = str(round(owm_temp,1)) + self.data.wx_units[0]
+            wx_temp = str(int(owm_temp)) + self.data.wx_units[0]
 
             wx_humidity = str(wx.get('humidity')) + "%"
 
