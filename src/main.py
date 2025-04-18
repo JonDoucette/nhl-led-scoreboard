@@ -28,8 +28,8 @@ from renderer.loading_screen import Loading
 import debug
 import os
 # If you want real fancy stack trace dumps, uncomment these two lines
-#from rich.traceback import install
-#install(show_locals=True) 
+from rich.traceback import install
+install(show_locals=True) 
 
 SCRIPT_NAME = "NHL-LED-SCOREBOARD"
 
@@ -64,8 +64,6 @@ def run():
 
     # This data will get passed throughout the entirety of this program.
     # It initializes all sorts of things like current season, teams, helper functions
-    print("init Data")
-    data = Data(config)
 
     #If we pass the logging arguments on command line, override what's in the config.json, else use what's in config.json (color will always be false in config.json)
     if commandArgs.logcolor and commandArgs.loglevel != None:
@@ -76,6 +74,10 @@ def run():
         debug.set_debug_status(config,logcolor=commandArgs.logcolor,loglevel=config.loglevel)
     else:
         debug.set_debug_status(config,loglevel=config.loglevel)
+
+    # This data will get passed throughout the entirety of this program.
+    # It initializes all sorts of things like current season, teams, helper functions
+    data = Data(config)
 
     # Print some basic info on startup
     debug.info("{} - v{} ({}x{})".format(SCRIPT_NAME, SCRIPT_VERSION, matrix.width, matrix.height))

@@ -146,7 +146,7 @@ class Data:
         self.network_issues = False
 
         # Get the teams info
-        print("update Teams info")
+        debug.info("update Teams info")
         self.teams_info = self.get_teams()
         # So oddly enough, there are a handful of situations where the API does not include the team_id
         # it's happening often enough that it's worth keeping a second teams_info that is keyed off of the
@@ -157,7 +157,7 @@ class Data:
         self.config = config
 
         # Get the status from the API
-        print("Get status from api")
+        debug.info("Get status from api")
         self.get_status()
 
         # Get favorite team's id
@@ -170,7 +170,7 @@ class Data:
         #self.current_game_index = 0
 
         # Fetch the games for today
-        print("refresh games")
+        debug.info("refresh games")
         self.refresh_games()
 
         # Flag to indicate if all preferred games are Final
@@ -180,7 +180,11 @@ class Data:
         self.today = self.date()
 
         # Get refresh standings
+<<<<<<< HEAD
         print("refresh standings")
+=======
+        debug.info("refresh standings")
+>>>>>>> other-fork/master
         self.refresh_standings()
 
         # Playoff Flag
